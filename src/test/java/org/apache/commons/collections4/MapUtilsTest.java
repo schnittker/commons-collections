@@ -1323,4 +1323,22 @@ public class MapUtilsTest extends AbstractAvailableLocalesTest {
         }
         return '.';
     }
+
+    @Test
+    public void testFirstMapValue() {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "value1");
+        map.put(2, "value2");
+        map.put(3, "value3");
+        assertEquals("value1", MapUtils.getFirstMapValue(map));
+    }
+
+    @Test
+    public void testLastMapValue() {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "value1");
+        map.put(2, "value2");
+        map.put(3, "value3");
+        assertEquals("value3", MapUtils.getLastMapValue(map));
+    }
 }

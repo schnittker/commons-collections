@@ -2040,6 +2040,38 @@ public class MapUtils {
     }
 
     /**
+     * Returns the first map value without knowing the key
+     *
+     * @param map The map to return the first value, may be {@code null}. If {@code null}, the return value is null
+     * @param <K> the key type
+     * @param <V> the value type
+     * @return the first value of the map
+     */
+    public static <K, V> V getFirstMapValue(Map<K, V> map) {
+        if(Objects.isNull(map)) {
+            return null;
+        }
+
+        return map.get(map.keySet().toArray()[0]);
+    }
+
+    /**
+     * Returns the last map value without knowing the key
+     *
+     * @param map The map to return the last value, may be {@code null}. If {@code null}, the return value is null
+     * @param <K> the key type
+     * @param <V> the value type
+     * @return the last value of the map
+     */
+    public static  <K, V> V getLastMapValue(Map<K, V> map) {
+        if(Objects.isNull(map)) {
+            return null;
+        }
+
+        return map.get(map.keySet().toArray()[map.keySet().toArray().length - 1]);
+    }
+
+    /**
      * {@code MapUtils} should not normally be instantiated.
      */
     private MapUtils() {
